@@ -1,188 +1,1188 @@
-h1{
-    font-size: 60px;
-    font-family: serif;
-    background-color: rgb(218, 100, 100);
-    color: rgb(255, 255, 255);
-    text-shadow: 3px 6px rgb(5, 2, 9);
-    margin: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px; 
+/* ==========================================================================
+   WEEK 4 RECIPE WEBSITE: PIZZA DIP
+   Modern, Ultra-Premium, Culinary Editorial Design System
+   Features: Color Distinction by Part, Glassmorphism, Micro-interactions,
+             Soft Ambient Glow, 3-Tier Responsive
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS VARIABLES & DESIGN TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+    /* Brand Palette - Italian Gourmet Warmth */
+    --primary: #c83226;
+    --primary-hover: #b3251a;
+    --primary-light: #e84538;
+    --primary-glow: rgba(200, 50, 38, 0.28);
+    --primary-gradient: linear-gradient(135deg, #b9261c 0%, #d83a2d 52%, #ea583f 100%);
+    --primary-gradient-subtle: linear-gradient(135deg, rgba(200, 50, 38, 0.08) 0%, rgba(234, 88, 63, 0.05) 100%);
+
+    /* Part 1: Pull-Apart Bread (Warm Butter & Golden Crust) */
+    --crust-gold: #d97706;
+    --crust-gold-light: #f59e0b;
+    --crust-gold-glow: rgba(217, 119, 6, 0.35);
+    --crust-bg-gradient: linear-gradient(160deg, #fffdf8 0%, #fff7ec 100%);
+    --crust-bg-hover: linear-gradient(160deg, #ffffff 0%, #fef3e0 100%);
+    --crust-border: rgba(229, 150, 40, 0.38);
+    --crust-border-hover: rgba(217, 119, 6, 0.6);
+    --crust-border-top: #e08b28;
+
+    /* Part 2: The Pizza Dip (Tomato Marinara & Melted Cheese Pastel Blush) */
+    --dip-red: #c83226;
+    --dip-red-glow: rgba(200, 50, 38, 0.35);
+    --dip-bg-gradient: linear-gradient(160deg, #fffcfb 0%, #fff1ee 100%);
+    --dip-bg-hover: linear-gradient(160deg, #ffffff 0%, #fde8e4 100%);
+    --dip-border: rgba(200, 50, 38, 0.32);
+    --dip-border-hover: rgba(200, 50, 38, 0.6);
+    --dip-border-top: #c83226;
+
+    /* Part 3: Baking Instructions (Cast-Iron Warmth & Gourmet Parchment) */
+    --bake-slate: #5a463a;
+    --bake-slate-glow: rgba(90, 70, 58, 0.3);
+    --bake-bg-gradient: linear-gradient(160deg, #ffffff 0%, #fbf9f4 100%);
+    --bake-bg-hover: linear-gradient(160deg, #ffffff 0%, #f5efe6 100%);
+    --bake-border: rgba(160, 140, 125, 0.35);
+    --bake-border-hover: rgba(160, 140, 125, 0.65);
+    --bake-border-top: #73594b;
+
+    /* Backgrounds & Glassmorphic Surfaces */
+    --bg-body: #faf7f2;
+    --bg-card: rgba(255, 255, 255, 0.94);
+    --bg-card-hover: rgba(255, 255, 255, 0.98);
+    --bg-card-subtle: #fcfbfa;
+    --bg-image-wrapper: #faf6f0;
+    --bg-highlight: #fff7ed;
+
+    /* Text & High Contrast Hierarchy */
+    --text-primary: #1e1814;
+    --text-secondary: #584c44;
+    --text-muted: #8a7e75;
+    --text-inverse: #ffffff;
+
+    /* Delicate Borders */
+    --border-card: rgba(226, 215, 204, 0.75);
+    --border-card-hover: rgba(200, 50, 38, 0.35);
+    --border-subtle: rgba(235, 226, 218, 0.85);
+
+    /* Radii Tokens */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 22px;
+    --radius-pill: 9999px;
+
+    /* Shadows & Ambient Lighting */
+    --shadow-sm: 0 2px 6px rgba(45, 30, 20, 0.04);
+    --shadow-card: 0 4px 20px -2px rgba(45, 30, 20, 0.06), 0 2px 6px -1px rgba(45, 30, 20, 0.03);
+    --shadow-card-hover: 0 16px 36px -4px rgba(200, 50, 38, 0.12), 0 6px 14px -2px rgba(45, 30, 20, 0.05);
+    --shadow-header: 0 16px 36px -6px rgba(185, 38, 28, 0.35);
+    --shadow-image: 0 4px 14px rgba(40, 25, 15, 0.06);
+    --shadow-image-hover: 0 8px 24px rgba(200, 50, 38, 0.16);
+
+    /* Typography */
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Smooth Micro-interaction Timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-h2{
-    font-size: 35px;
-    font-family: serif;
-    color: rgb(255, 255, 255);
-    text-shadow: 3px 6px rgb(5, 2, 9);
-    padding: 20px ; 
-	margin: 20px;             
-}
-h3{
-    font-size: 25px;
-    font-family: serif;
-    color: rgb(255, 255, 255);
-}
-#ingedient{
-    width: 55%;
-    border:5px solid #8f1a1f;
-}
-#BREAD{
-    width: 80%;
-    border:5px solid #8f1a1f;
-}
-#BREAD2{
-    width: 80%;
-    border:5px solid #8f1a1f;
-}
-#dip{
-    width: 60%;
-    border:5px solid #8f1a1f;
-}
-#dip1{
-    width: 60%;
-    border:5px solid #8f1a1f;
-}
-#dip2{
-    width: 60%;
-    border:5px solid #8f1a1f;
-}
-#pizza{
-    width: 60%;
-    border:5px solid #8f1a1f;
-}
-h7{
-    font-size: 35px;
-    font-family: serif;
-    color: rgb(255, 255, 255);
-    text-shadow: 3px 6px rgb(5, 2, 9);
-    padding: 20px ; 
-	margin: 20px;   
-}
-h8{
-    font-size: 25px;
-    font-family: serif;
-    color: rgb(255, 255, 255);
-}
-h12{
-    font-size: 35px;
-    font-family: serif;
-    color: rgb(255, 255, 255);
-    text-shadow: 3px 6px rgb(5, 2, 9);
-    padding: 20px ; 
-	margin: 20px;   
-}
-h13{
-    font-size: 25px;
-    font-family: serif;
-    color: rgb(255, 255, 255);
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
+body {
+    min-height: 100vh;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text-primary);
+    background-color: var(--bg-body);
+    background-image: 
+        radial-gradient(circle at 12% 12%, rgba(200, 50, 38, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 88% 28%, rgba(245, 158, 11, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(200, 50, 38, 0.04) 0%, transparent 50%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
 
+/* Selection Highlight */
+::selection {
+    background: rgba(200, 50, 38, 0.15);
+    color: var(--primary);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* --------------------------------------------------------------------------
+   3. LAYOUT CONTAINER & RESPONSIVE GRID (DESKTOP DEFAULT)
+   -------------------------------------------------------------------------- */
 .grid-container {
-	display: grid;
-	grid-template-columns:20% auto auto ;
-	grid-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 28px;
+    max-width: 1240px;
+    margin: 40px auto;
+    padding: 0 28px;
+    transition: var(--transition-smooth);
 }
 
-.grid-container > div{
-    border: 1px solid rgb(57, 45, 45);
-    font-size: 20px;
+/* Base Card Style with Glassmorphic Texture */
+.card {
+    background-color: var(--bg-card);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-card);
+    border-top: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* Section Header styling within cards */
+.section-header {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+/* Base Section Tag Badge */
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 12px;
+    transition: var(--transition-fast);
+}
+
+/* PART 1 BADGE: Warm Crust Golden Amber */
+.tag-part1,
+.tag-part1-steps {
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 12px var(--crust-gold-glow);
+}
+
+/* PART 2 BADGE: Rich Italian Tomato Marinara */
+.tag-part2 {
+    background: linear-gradient(135deg, #b9261c 0%, #ea583f 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 12px var(--dip-red-glow);
+}
+
+/* PART 3 BADGE: Cast-Iron Skillet Warmth */
+.tag-instructions {
+    background: linear-gradient(135deg, #443730 0%, #6e574c 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px var(--bake-slate-glow);
+}
+
+.section-tag:hover {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Section Headings with Editorial Accents */
+.section-header h2,
+.section-header .as-h2,
+h7.as-h2,
+h12.as-h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.2vw, 1.7rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+    display: block;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-header h2::after,
+.section-header .as-h2::after,
+h7.as-h2::after,
+h12.as-h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 48px;
+    height: 3.5px;
+    border-radius: var(--radius-pill);
+    background: var(--primary-gradient);
+}
+
+.section-intro {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-top: 10px;
+}
+
+.subsection-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   4. HEADER SECTION (#header)
+   -------------------------------------------------------------------------- */
+#header {
+    grid-column: 1 / -1;
+    background: var(--primary-gradient);
+    color: var(--text-inverse);
+    border: none;
+    box-shadow: var(--shadow-header);
+    padding: 40px 36px 36px;
     text-align: center;
-    background-color:rgb(235, 161, 185);
+    position: relative;
+    border-radius: var(--radius-xl);
 }
 
- #header{
-    grid-column: 1 / span 3;
+#header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
+        radial-gradient(circle at 10% 90%, rgba(0, 0, 0, 0.16) 0%, transparent 45%);
+    pointer-events: none;
 }
 
-#main1{
-    grid-column: 1 / span 2;
+.header-badge-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
 }
 
-#main2{
-    grid-column: 2/ span 3;
-}
-#right{
-    grid-column: 1 / span 3;
-}
-
-#footer{
-    grid-column: 1 / span 3;
-} 
-
-
-@media only screen and (max-width: 768px) {
-	.grid-container {
-	display: grid;
-	grid-template-columns:auto auto ;
-	grid-gap: 10px;
-	}
-
- #header{
-    grid-column: 1 / span 2;
+.badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    backdrop-filter: blur(8px);
+    transition: var(--transition-fast);
 }
 
-#main1{
-    grid-column: 1 / span 1;
+.badge:hover {
+    transform: translateY(-2px);
 }
 
-#main2{
-    grid-column: 2 / span 1;
-}
-#right{
-    grid-column: 1 / span 2;
-}
-
-#footer{
-    grid-column: 1 / span 2;
-} 
+.badge-primary {
+    background: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media only screen and (max-width: 500px) {
-	.grid-container {
-	display: grid;
-	grid-template-columns:auto ;
-	grid-gap: 10px;
-	}
-
- #header{
-    grid-column: 1 / span 1;
+.badge-secondary {
+    background: rgba(0, 0, 0, 0.24);
+    color: #fef3c7;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-#main1{
-    grid-column: 1 / span 1;
+.badge-highlight {
+    background: linear-gradient(135deg, #d97706, #f59e0b);
+    color: #271b05;
+    font-weight: 700;
+    box-shadow: 0 4px 12px var(--crust-gold-glow);
 }
 
-#main2{
-    grid-column: 1 / span 1;
-}
-#right{
-    grid-column: 1 / span 1;
+.header-title,
+#header h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
 }
 
-#footer{
-    grid-column: 1 / span 1;
-} 
+.header-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.18rem);
+    color: rgba(255, 255, 255, 0.94);
+    max-width: 700px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glassmorphism Meta Bar */
+.recipe-meta-bar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-md);
+    padding: 10px 24px;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+}
+
+.meta-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+.meta-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.meta-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.78);
+    font-weight: 600;
+}
+
+.meta-value {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.meta-divider {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   5. INGREDIENTS LIST COMPONENT & MICRO-INTERACTIONS
+   -------------------------------------------------------------------------- */
+.ingredient-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.ingredient-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: linear-gradient(135deg, rgba(62, 46, 42, 0.94) 0%, rgba(46, 34, 31, 0.96) 100%);
+    border: 1px solid rgba(180, 140, 125, 0.28);
+    border-radius: 10px;
+    padding: 12px 16px;
+    box-shadow: 0 4px 14px rgba(45, 30, 25, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: var(--transition-smooth);
+    cursor: default;
+}
+
+.ingredient-item:hover {
+    background: linear-gradient(135deg, rgba(74, 55, 50, 0.96) 0%, rgba(56, 41, 37, 0.98) 100%);
+    transform: translateX(6px);
+    border-color: rgba(220, 140, 110, 0.45);
+    box-shadow: 0 6px 20px rgba(45, 30, 25, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: var(--transition-bounce);
+}
+
+.ingredient-item:hover .check-icon {
+    transform: scale(1.15) rotate(6deg);
+}
+
+.ingredient-text {
+    font-size: 0.96rem;
+    color: #f4ede4; /* Warm velvety cream text */
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   6. IMAGE WRAPPERS & IMAGE DISPLAY RULES (CONTAIN & NO-CROP)
+   -------------------------------------------------------------------------- */
+.image-wrapper {
+    background: linear-gradient(145deg, #322522 0%, #261b19 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(180, 140, 125, 0.28);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(45, 30, 25, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.recipe-image,
+#ingedient,
+#BREAD,
+#BREAD2,
+#dip,
+#dip1,
+#dip2,
+#pizza {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Full photo visible without cropping or distortion */
+    border-radius: calc(var(--radius-md) - 2px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.image-wrapper:hover {
+    border-color: rgba(220, 140, 110, 0.5);
+    box-shadow: 0 8px 24px rgba(60, 40, 35, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.image-wrapper:hover .recipe-image {
+    transform: scale(1.03);
+}
+
+.image-caption {
+    font-size: 0.86rem;
+    color: #d8cdbf; /* Soft warm sand cream text */
+    background: linear-gradient(180deg, rgba(38, 27, 24, 0.9) 0%, rgba(30, 21, 19, 0.97) 100%);
+    border-top: 1px solid rgba(180, 140, 125, 0.22);
+    line-height: 1.45;
+    text-align: center;
+    padding: 10px 14px 8px;
+    width: 100%;
+}
+
+/* ==========================================================================
+   PART 1 SPECIFIC STYLES: PULL-APART BREAD (Warm Butter & Golden Crust)
+   ========================================================================== */
+#main1,
+#main2 {
+    background: var(--crust-bg-gradient);
+    border: 1px solid var(--crust-border);
+    border-top: 3.5px solid var(--crust-border-top);
+    box-shadow: 0 4px 20px -2px rgba(180, 110, 20, 0.06), 0 2px 6px -1px rgba(180, 110, 20, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+#main1:hover,
+#main2:hover {
+    background: var(--crust-bg-hover);
+    border-color: var(--crust-border-hover);
+    border-top-color: var(--crust-gold);
+    box-shadow: 0 16px 36px -4px rgba(217, 119, 6, 0.16), 0 6px 14px -2px rgba(180, 110, 20, 0.06), inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+#main1 .section-header h2::after,
+#main2 .section-header h2::after {
+    background: linear-gradient(90deg, #d97706, #f59e0b);
+}
+
+#main1 .check-icon {
+    background: linear-gradient(135deg, #d97706, #f59e0b);
+    box-shadow: 0 2px 6px var(--crust-gold-glow);
+}
+
+#main1 .ingredient-text strong {
+    color: #f3b259; /* Soft warm honey gold */
+}
+
+#main1 .ingredient-item:hover {
+    border-color: rgba(245, 158, 11, 0.45);
+    box-shadow: 0 6px 18px rgba(45, 30, 25, 0.18);
+}
+
+/* 7. MAIN 1 (#main1): Layout Details */
+#main1 {
+    grid-column: 1 / span 6;
+    display: flex;
+    flex-direction: column;
+}
+
+.main1-image-wrapper {
+    margin-top: auto;
+    margin-bottom: 18px;
+    background: linear-gradient(145deg, #322522 0%, #261b19 100%);
+    border-color: rgba(217, 119, 6, 0.3);
+    padding: 10px;
+}
+
+#ingedient {
+    max-height: 340px;
+    margin: 0 auto;
+}
+
+.source-wrapper {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.source-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #d97706 0%, #ea580c 100%);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 11px 24px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 16px rgba(217, 119, 6, 0.35);
+    transition: var(--transition-smooth);
+}
+
+.source-btn:hover {
+    background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.45);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+.source-btn:active {
+    transform: translateY(0);
+}
+
+.external-icon {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.source-btn:hover .external-icon {
+    transform: translate(3px, -3px);
+}
+
+/* 8. MAIN 2 (#main2): Layout Details */
+#main2 {
+    grid-column: 7 / span 6;
+    display: flex;
+    flex-direction: column;
+}
+
+.process-grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.process-card {
+    background: linear-gradient(135deg, rgba(62, 46, 42, 0.94) 0%, rgba(46, 34, 31, 0.96) 100%);
+    border: 1px solid rgba(180, 140, 125, 0.28);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(45, 30, 25, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+.process-card:hover {
+    background: linear-gradient(135deg, rgba(74, 55, 50, 0.96) 0%, rgba(56, 41, 37, 0.98) 100%);
+    border-color: rgba(217, 119, 6, 0.45);
+    box-shadow: 0 8px 22px rgba(45, 30, 25, 0.2), 0 0 14px rgba(217, 119, 6, 0.15);
+    transform: translateY(-3px);
+}
+
+.process-badge {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    z-index: 2;
+    background: rgba(30, 24, 20, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    transition: var(--transition-fast);
+}
+
+.process-card:hover .process-badge {
+    background: #d97706;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 3px 10px rgba(217, 119, 6, 0.4);
+}
+
+#BREAD,
+#BREAD2 {
+    max-height: 290px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   PART 2 SPECIFIC STYLES: THE PIZZA DIP (Tomato Marinara & Melted Cheese)
+   ========================================================================== */
+#right {
+    grid-column: 1 / -1;
+    background: var(--dip-bg-gradient);
+    border: 1px solid var(--dip-border);
+    border-top: 3.5px solid var(--dip-border-top);
+    box-shadow: 0 4px 20px -2px rgba(185, 40, 30, 0.07), 0 2px 6px -1px rgba(185, 40, 30, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+#right:hover {
+    background: var(--dip-bg-hover);
+    border-color: var(--dip-border-hover);
+    border-top-color: var(--primary-hover);
+    box-shadow: 0 16px 36px -4px rgba(200, 50, 38, 0.18), 0 6px 14px -2px rgba(185, 40, 30, 0.06), inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+#right .section-header .as-h2::after,
+#right .section-header h7::after {
+    background: linear-gradient(90deg, #b9261c, #ea583f);
+}
+
+#right .check-icon {
+    background: linear-gradient(135deg, #b9261c, #ea583f);
+    box-shadow: 0 2px 6px var(--dip-red-glow);
+}
+
+#right .ingredient-text strong {
+    color: #f09586; /* Soft warm terracotta coral */
+}
+
+#right .ingredient-item:hover {
+    border-color: rgba(234, 110, 90, 0.45);
+    box-shadow: 0 6px 18px rgba(45, 30, 25, 0.18);
+}
+
+.dip-layout-container {
+    display: grid;
+    grid-template-columns: 1fr 1.65fr;
+    gap: 28px;
+    align-items: start;
+}
+
+.dip-ingredients-box {
+    background: linear-gradient(145deg, rgba(58, 42, 39, 0.95) 0%, rgba(44, 31, 28, 0.97) 100%);
+    border: 1px solid rgba(190, 110, 95, 0.3);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    box-shadow: 0 4px 18px rgba(45, 30, 25, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dip-ingredients-box .subsection-title {
+    color: #f4ede4; /* Warm velvety cream title */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.dip-process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.dip-process-grid .process-card {
+    background: linear-gradient(135deg, rgba(62, 46, 42, 0.94) 0%, rgba(46, 34, 31, 0.96) 100%);
+    border: 1px solid rgba(190, 110, 95, 0.28);
+    box-shadow: 0 4px 16px rgba(45, 30, 25, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dip-process-grid .process-card:hover {
+    background: linear-gradient(135deg, rgba(74, 55, 50, 0.96) 0%, rgba(56, 41, 37, 0.98) 100%);
+    border-color: rgba(234, 110, 90, 0.45);
+    box-shadow: 0 8px 22px rgba(45, 30, 25, 0.2), 0 0 14px rgba(200, 50, 38, 0.15);
+}
+
+.dip-process-grid .process-card:hover .process-badge {
+    background: #c83226;
+    box-shadow: 0 3px 10px rgba(200, 50, 38, 0.4);
+}
+
+#dip,
+#dip1,
+#dip2 {
+    max-height: 250px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   PART 3 SPECIFIC STYLES: INSTRUCTIONS & HERO DISH (Skillet Warmth)
+   ========================================================================== */
+#footer {
+    grid-column: 1 / -1;
+    background: var(--bake-bg-gradient);
+    border: 1px solid var(--bake-border);
+    border-top: 3.5px solid var(--bake-border-top);
+    box-shadow: 0 4px 20px -2px rgba(45, 30, 20, 0.06), 0 2px 6px -1px rgba(45, 30, 20, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+#footer:hover {
+    background: var(--bake-bg-hover);
+    border-color: var(--bake-border-hover);
+    border-top-color: var(--bake-slate);
+    box-shadow: 0 16px 36px -4px rgba(45, 30, 20, 0.14), 0 6px 14px -2px rgba(45, 30, 20, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+#footer .section-header .as-h2::after,
+#footer .section-header h12::after {
+    background: linear-gradient(90deg, #6e574c, #c83226);
+}
+
+.instructions-layout {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 34px;
+    align-items: start;
+}
+
+/* Step-by-Step Instruction Cards: Rich Dark Berry / Espresso Theme */
+.instruction-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.instruction-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: linear-gradient(135deg, rgba(58, 44, 40, 0.95) 0%, rgba(44, 33, 30, 0.97) 100%);
+    border: 1px solid rgba(180, 130, 115, 0.28);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    box-shadow: 0 4px 16px rgba(45, 30, 25, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: var(--transition-smooth);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+.instruction-step::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(234, 88, 63, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.instruction-step:hover {
+    background: linear-gradient(135deg, rgba(70, 52, 47, 0.96) 0%, rgba(52, 38, 35, 0.98) 100%);
+    border-color: rgba(220, 110, 85, 0.45);
+    box-shadow: 0 8px 24px rgba(45, 30, 25, 0.18), 0 0 14px rgba(200, 50, 38, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transform: translateX(6px);
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e05345 0%, #ba2b1e 100%);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.98rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 3px 10px rgba(200, 50, 38, 0.35);
+    transition: var(--transition-bounce);
+    position: relative;
+    z-index: 1;
+}
+
+.instruction-step:hover .step-number {
+    transform: scale(1.15);
+    box-shadow: 0 5px 16px rgba(220, 50, 40, 0.55);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.step-content {
+    font-size: 0.98rem;
+    line-height: 1.62;
+    color: #f4ede4; /* Warm velvety cream text */
+    position: relative;
+    z-index: 1;
+}
+
+.step-content strong {
+    color: #f09586; /* Soft warm terracotta coral accent */
+    font-weight: 700;
+}
+
+/* Final Dish Showcase Card with Subtle Amber Glow */
+.final-dish-showcase {
+    position: sticky;
+    top: 24px;
+}
+
+.final-dish-figure {
+    background: linear-gradient(145deg, rgba(58, 43, 39, 0.95) 0%, rgba(42, 31, 28, 0.97) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.38);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    box-shadow: 0 8px 28px rgba(45, 30, 25, 0.18), 0 0 18px rgba(245, 158, 11, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.final-dish-figure:hover {
+    background: linear-gradient(145deg, rgba(68, 50, 45, 0.96) 0%, rgba(50, 36, 33, 0.98) 100%);
+    box-shadow: 0 16px 38px rgba(45, 30, 25, 0.24), 0 0 26px rgba(245, 158, 11, 0.2);
+    transform: translateY(-4px);
+    border-color: rgba(245, 158, 11, 0.65);
+}
+
+.final-dish-badge {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    z-index: 2;
+    background: linear-gradient(135deg, #d97706, #f59e0b);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.45);
+    transition: var(--transition-fast);
+}
+
+.final-dish-figure:hover .final-dish-badge {
+    transform: scale(1.05);
+}
+
+.hero-image-wrapper {
+    background: linear-gradient(145deg, #2c1f1c 0%, #201614 100%);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: var(--radius-md);
+    padding: 8px;
+    margin-bottom: 14px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+#pizza {
+    max-height: 480px;
+    margin: 0 auto;
+}
+
+.hero-caption h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f4ede4; /* Warm velvety cream heading */
+    margin-bottom: 6px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.hero-caption p {
+    font-size: 0.94rem;
+    color: #d8cdbf; /* Soft warm sand cream text */
+    line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   11. BACKWARD COMPATIBILITY HOOKS (OLD ASSIGNMENT TAGS)
+   -------------------------------------------------------------------------- */
+h3, h8 {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+h7, h12 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+h13 {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   12. RESPONSIVE BREAKPOINT 2: TABLET (701px - 992px)
+   System: 2-Column Balanced Layout with Smooth Transitions
+   -------------------------------------------------------------------------- */
+@media only screen and (max-width: 992px) and (min-width: 701px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+        max-width: 900px;
+        margin: 28px auto;
+        padding: 0 22px;
+    }
+
+    #header {
+        grid-column: 1 / -1;
+        padding: 32px 24px;
+    }
+
+    /* 2 Columns: Main 1 on left, Main 2 on right */
+    #main1 {
+        grid-column: 1 / span 1;
+        padding: 24px;
+    }
+
+    #main2 {
+        grid-column: 2 / span 1;
+        padding: 24px;
+    }
+
+    .process-grid-2col {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    #BREAD,
+    #BREAD2 {
+        max-height: 220px;
+    }
+
+    /* Part 2: The Pizza Dip splits neatly into 2 columns */
+    #right {
+        grid-column: 1 / -1;
+        padding: 26px;
+    }
+
+    .dip-layout-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .dip-process-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    #dip,
+    #dip1,
+    #dip2 {
+        max-height: 190px;
+    }
+
+    /* Footer: Instructions 2-Column Split */
+    #footer {
+        grid-column: 1 / -1;
+        padding: 26px;
+    }
+
+    .instructions-layout {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 22px;
+    }
+
+    #pizza {
+        max-height: 380px;
+    }
+
+    .recipe-meta-bar {
+        gap: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   13. RESPONSIVE BREAKPOINT 3: MOBILE (<= 700px)
+   System: Single Column Stack, Easy Scrolling, Zero Overflow
+   -------------------------------------------------------------------------- */
+@media only screen and (max-width: 700px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin: 16px auto;
+        padding: 0 14px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #header,
+    #main1,
+    #main2,
+    #right,
+    #footer {
+        grid-column: 1 / -1;
+    }
+
+    .card {
+        padding: 20px 16px;
+        border-radius: var(--radius-md);
+    }
+
+    /* Header Mobile Adjustments */
+    #header {
+        padding: 26px 16px;
+        border-radius: var(--radius-lg);
+    }
+
+    .header-title,
+    #header h1 {
+        font-size: 1.85rem;
+    }
+
+    .header-subtitle {
+        font-size: 0.92rem;
+        margin-bottom: 18px;
+    }
+
+    .recipe-meta-bar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .meta-divider {
+        display: none;
+    }
+
+    .meta-item {
+        justify-content: flex-start;
+    }
+
+    .meta-label {
+        font-size: 0.68rem;
+    }
+
+    .meta-value {
+        font-size: 0.88rem;
+    }
+
+    /* All Multi-Column Sections Collapse to Single Stack */
+    .process-grid-2col {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .dip-layout-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .dip-process-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .instructions-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .final-dish-showcase {
+        position: static;
+    }
+
+    /* Mobile Image Proportion Controls */
+    #ingedient {
+        max-height: 280px;
+    }
+
+    #BREAD,
+    #BREAD2 {
+        max-height: 240px;
+    }
+
+    #dip,
+    #dip1,
+    #dip2 {
+        max-height: 220px;
+    }
+
+    #pizza {
+        max-height: 340px;
+    }
+
+    .instruction-step {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .step-number {
+        width: 28px;
+        height: 28px;
+        font-size: 0.85rem;
+    }
+
+    .step-content {
+        font-size: 0.9rem;
+    }
+
+    .source-btn {
+        width: 100%;
+        padding: 12px 18px;
+    }
 }
